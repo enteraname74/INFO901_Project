@@ -1,6 +1,5 @@
 plugins {
-    kotlin("jvm") version "1.9.23"
-    kotlin("plugin.serialization") version "1.9.23"
+    kotlin("jvm")
 }
 
 group = "com.github.enteraname74.info901project"
@@ -8,11 +7,12 @@ version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
-    google()
 }
 
 dependencies {
     testImplementation(kotlin("test"))
+    implementation("com.google.guava:guava:33.3.0-jre")
+    implementation(project(":domain"))
 }
 
 tasks.test {

@@ -5,23 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bdf6df7e-645e-43b8-9333-297a6cbb9679" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/EventBusService.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Message.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Process.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/communication/src/main/kotlin/com/github/enteraname74/info901project/communication/EventBusService.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/communication/src/main/kotlin/com/github/enteraname74/info901project/communication/communicator/BroadcastCommunicator.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/src/main/kotlin/com/github/enteraname74/info901project/domain/model/ClockMessage.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/src/main/kotlin/com/github/enteraname74/info901project/domain/model/CommunicationType.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/src/main/kotlin/com/github/enteraname74/info901project/domain/model/Communicator.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/src/main/kotlin/com/github/enteraname74/info901project/domain/model/LamportClock.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/src/main/kotlin/com/github/enteraname74/info901project/domain/model/Message.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/src/main/kotlin/com/github/enteraname74/info901project/domain/model/Process.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/EventBusService.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/kotlin/com/github/enteraname74/info901project/app/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Message.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Process.kt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,8 +35,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Kotlin Data Class" />
+        <option value="Kotlin File" />
         <option value="Kotlin Class" />
+        <option value="Kotlin Interface" />
+        <option value="Kotlin Data Class" />
       </list>
     </option>
   </component>
@@ -56,10 +57,11 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Gradle.Build INFO901_Project.executor": "Run",
+    "Kotlin.MainKt (1).executor": "Run",
     "Kotlin.MainKt.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -74,9 +76,28 @@
     ]
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/kotlin/com/github/enteraname74/info901project/app" />
+      <recent name="$PROJECT_DIR$/src/main/kotlin/com" />
+    </key>
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.github.enteraname74.info901project.domain.model" />
+      <recent name="com.github.enteraname74.domain.model" />
+      <recent name="com.github.enteraname74.domain" />
+      <recent name="com" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Kotlin.MainKt (1)">
+    <configuration name="MainKt (1)" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.github.enteraname74.info901project.app.MainKt" />
+      <module name="INFO901_Project.app.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MainKt" />
+      <option name="MAIN_CLASS_NAME" value="com.github.enteraname74.info901project.app.MainKt" />
       <module name="INFO901_Project.main" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -84,6 +105,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.MainKt (1)" />
         <item itemvalue="Kotlin.MainKt" />
       </list>
     </recent_temporary>
@@ -104,7 +126,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1726659758879</updated>
-      <workItem from="1726659759876" duration="1812000" />
+      <workItem from="1726659759876" duration="7729000" />
     </task>
     <servers />
   </component>

@@ -1,6 +1,5 @@
 plugins {
-    kotlin("jvm") version "1.9.23"
-    kotlin("plugin.serialization") version "1.9.23"
+    kotlin("jvm")
 }
 
 group = "com.github.enteraname74.info901project"
@@ -8,11 +7,13 @@ version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
-    google()
 }
 
 dependencies {
     testImplementation(kotlin("test"))
+    implementation(project(":communication"))
+    implementation(project(":domain"))
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0")
 }
 
 tasks.test {

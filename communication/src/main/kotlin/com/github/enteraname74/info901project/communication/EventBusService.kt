@@ -1,9 +1,11 @@
+package com.github.enteraname74.info901project.communication
+
+import com.github.enteraname74.info901project.domain.model.Message
 import com.google.common.eventbus.AsyncEventBus
 import com.google.common.eventbus.EventBus
-import java.util.concurrent.Executor
 import java.util.concurrent.Executors
 
-class EventBusService(){
+internal class EventBusService {
     private val eventBus: EventBus = AsyncEventBus(Executors.newCachedThreadPool())
 
     fun registerSubscriber(subscriber: Any) {
@@ -22,6 +24,6 @@ class EventBusService(){
     }
 
     companion object {
-        val instance: EventBusService = EventBusService()
+        var instance: EventBusService = EventBusService()
     }
 }
