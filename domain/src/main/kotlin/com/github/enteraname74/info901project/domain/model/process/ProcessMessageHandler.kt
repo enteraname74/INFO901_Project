@@ -47,6 +47,18 @@ class ProcessMessageHandler {
                     it.recipientId != processId
         }
 
+    private fun handleIdMessage(
+        message: Message.IdMessage,
+        processId: Int,
+    ): Message? =
+        message.takeUnless {
+            it.senderId != processId
+        }
+
+    /**
+     * Check if the found message is for the process.
+     * Returns null if not.
+     */
     fun filterMessage(
         message: Message,
         process: Process,
@@ -74,6 +86,10 @@ class ProcessMessageHandler {
                 message = message,
                 processId = process.id,
                 previousId = process.previousProcessId(),
+            )
+            is Message.IdMessage -> handleIdMessage(
+                message = message,
+                processId = process.id,
             )
         }
 }

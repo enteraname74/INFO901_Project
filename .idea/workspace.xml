@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bdf6df7e-645e-43b8-9333-297a6cbb9679" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/domain/src/main/kotlin/com/github/enteraname74/info901project/domain/model/ext/AnyExt.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/communication/src/main/kotlin/com/github/enteraname74/info901project/communication/communicatorimpl/CommunicatorImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/communication/src/main/kotlin/com/github/enteraname74/info901project/communication/communicatorimpl/CommunicatorImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/src/main/kotlin/com/github/enteraname74/info901project/domain/model/ClockMessage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/kotlin/com/github/enteraname74/info901project/domain/model/ClockMessage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/com/github/enteraname74/info901project/app/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/kotlin/com/github/enteraname74/info901project/app/Main.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain/src/main/kotlin/com/github/enteraname74/info901project/domain/model/Communicator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/kotlin/com/github/enteraname74/info901project/domain/model/Communicator.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/src/main/kotlin/com/github/enteraname74/info901project/domain/model/MailBox.kt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/kotlin/com/github/enteraname74/info901project/domain/model/MailBox.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/src/main/kotlin/com/github/enteraname74/info901project/domain/model/Message.kt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/kotlin/com/github/enteraname74/info901project/domain/model/message/Message.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/src/main/kotlin/com/github/enteraname74/info901project/domain/model/message/Message.kt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/kotlin/com/github/enteraname74/info901project/domain/model/message/Message.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain/src/main/kotlin/com/github/enteraname74/info901project/domain/model/process/Process.kt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/kotlin/com/github/enteraname74/info901project/domain/model/process/Process.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain/src/main/kotlin/com/github/enteraname74/info901project/domain/model/process/ProcessMessageHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/kotlin/com/github/enteraname74/info901project/domain/model/process/ProcessMessageHandler.kt" afterDir="false" />
     </list>
@@ -27,12 +26,12 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Kotlin File" />
         <option value="Kotlin Interface" />
         <option value="Kotlin Data Class" />
         <option value="Kotlin Enum" />
         <option value="Kotlin Class" />
         <option value="Kotlin Object" />
+        <option value="Kotlin File" />
       </list>
     </option>
   </component>
@@ -127,7 +126,9 @@
       <workItem from="1726726467429" duration="12141000" />
       <workItem from="1726756469285" duration="2870000" />
       <workItem from="1726760890857" duration="196000" />
-      <workItem from="1726813415570" duration="10617000" />
+      <workItem from="1726813415570" duration="12195000" />
+      <workItem from="1726831006165" duration="10544000" />
+      <workItem from="1726854240786" duration="8433000" />
     </task>
     <servers />
   </component>

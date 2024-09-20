@@ -1,5 +1,7 @@
 package com.github.enteraname74.info901project.domain.model
 
+import com.github.enteraname74.info901project.domain.model.ext.isInteger
+import com.github.enteraname74.info901project.domain.model.ext.toInt
 import com.github.enteraname74.info901project.domain.model.message.Message
 import com.github.enteraname74.info901project.domain.model.message.SystemMessage
 import com.github.enteraname74.info901project.domain.model.message.UserMessage
@@ -11,12 +13,16 @@ import kotlinx.coroutines.*
 abstract class Communicator {
     protected val lamportClock: LamportClock = LamportClock()
     protected var process: Process? = null
-    private var callback: CommunicatorCallback? = null
     private var state: ProcessState = ProcessState.Idle
     val mailBox: MailBox<UserMessage> = MailBox()
     private val systemMailBox: MailBox<SystemMessage> = MailBox()
     private val callbackMailBox: MailBox<Message.CallbackMessage> = MailBox()
     private val processMessageHandler = ProcessMessageHandler()
+
+    private var isInInitMode = false
+    private val ids: ArrayList<Int> = ArrayList()
+    private val totalNumberOfProcess: Int
+        get() = ids.size
 
     protected abstract suspend fun sendMessage(
         withCallback: Boolean = false,
@@ -59,11 +65,17 @@ abstract class Communicator {
 
     protected open fun handleMessageReception(clockMessage: ClockMessage) {
         process?.let { safeProcess ->
+            // In this case, we have retrieved a random id sent by a process
+            if (isInInitMode && (clockMessage.message as? Message.BroadcastMessage<*>)?.content?.isInteger() == true) {
+                val randomIdOfProcess: Int = (clockMessage.message as? Message.BroadcastMessage<*>)?.content?.toInt() ?: 0
+                ids.add(randomIdOfProcess)
+                return
+            }
+
             val filteredMessage = processMessageHandler.filterMessage(
                 message = clockMessage.message,
                 process = safeProcess,
             ) ?: return
-
 
             when (filteredMessage) {
                 is Message.SynchronizationMessage -> systemMailBox.add(filteredMessage)
@@ -81,19 +93,20 @@ abstract class Communicator {
                         }
                     }
                 }
+                is Message.IdMessage -> {
+                    // We save the id message in the user mailbox, to be retrieved by the process for setting its id
+                    mailBox.add(filteredMessage)
+                }
                 is UserMessage -> {
                     // System messages don't increment lamport clock
                     runBlocking {
                         lamportClock.setMax(other = clockMessage.clock)
                     }
                     mailBox.add(message = filteredMessage)
-                    callback?.onReceive(message = filteredMessage)
                 }
             }
 
             if (clockMessage.needCallback) {
-                println("COMMUNICATION -- handleMessageReception() -- Process ${process?.name} should send a callback " +
-                        "to ${clockMessage.message.senderId}")
                 runBlocking {
                     sendMessage { safeProcess ->
                         Message.CallbackMessage(
@@ -103,6 +116,57 @@ abstract class Communicator {
                     }
                 }
             }
+        }
+    }
+
+    suspend fun initIds() {
+        CoroutineScope(Dispatchers.IO).launch {
+            isInInitMode = true
+            var hasAllIds = false
+            while (!hasAllIds) {
+                // We wait for all process to send their ids
+                delay(DELAY_FOR_PROCESS)
+
+                // We analyze the fetched ids
+                val duplicatesIds: List<Int> = ids
+                    .groupingBy { it }
+                    .eachCount()
+                    .filter { it.value > 1 }
+                    .keys
+                    .toList()
+
+                if (duplicatesIds.isNotEmpty()) {
+                    // We remove the duplicates from the list of ids:
+                    duplicatesIds.forEach { duplicatesId ->
+                        ids.removeIf { it == duplicatesId }
+                    }
+                    // We need to send a message to the process to inform that he is a duplicate
+                    if (process?.id in duplicatesIds) {
+                        sendMessage { safeProcess ->
+                            Message.IdMessage(
+                                senderId = safeProcess.id,
+                                validId = null,
+                                numberOfProcesses = totalNumberOfProcess
+                            )
+                        }
+                    }
+                } else {
+                    // We give our process its new valid id
+                    sendMessage { safeProcess ->
+                        val sortedIds = ids.sorted()
+                        val validIdOfProcess = sortedIds.indexOf(safeProcess.id)
+                        Message.IdMessage(
+                            senderId = safeProcess.id,
+                            validId = validIdOfProcess,
+                            numberOfProcesses = totalNumberOfProcess
+                        )
+                    }
+
+                    // If we have all the ids, we can quit the loop
+                    hasAllIds = duplicatesIds.isEmpty()
+                }
+            }
+            isInInitMode = false
         }
     }
 
@@ -155,7 +219,7 @@ abstract class Communicator {
                 content = content,
             )
         }
-        waitCallbacks(totalToFetch = Process.MAX_NB_PROCESS - 1)
+        waitCallbacks(totalToFetch = totalNumberOfProcess - 1)
     }
 
     suspend fun receiveFromSync(senderId: Int): Message {
@@ -211,12 +275,8 @@ abstract class Communicator {
         this.process = process
     }
 
-    fun registerCallback(callback: CommunicatorCallback) {
-        this.callback = callback
+    companion object {
+        const val DELAY_FOR_PROCESS: Long = 2_000
     }
-}
-
-interface CommunicatorCallback {
-    fun onReceive(message: Message)
 }
 

@@ -8,20 +8,27 @@ sealed interface Message {
     @Serializable
     data class TokenMessage(
         override val senderId: Int,
-        override val recipientId: Int,
+        val recipientId: Int,
     ): SystemMessage
 
     @Serializable
     data class SynchronizationMessage(
         override val senderId: Int,
-        override val recipientId: Int,
+        val recipientId: Int,
     ): SystemMessage
 
     @Serializable
     data class CallbackMessage(
         override val senderId: Int,
-        override val recipientId: Int,
+        val recipientId: Int,
     ): SystemMessage
+
+    @Serializable
+    data class IdMessage(
+        override val senderId: Int,
+        val validId: Int?,
+        val numberOfProcesses: Int,
+    ): SystemMessage, UserMessage
 
     @Serializable
     data class BroadcastMessage<T>(
@@ -37,7 +44,5 @@ sealed interface Message {
     ): UserMessage
 }
 
-sealed interface SystemMessage : Message {
-    val recipientId: Int
-}
+sealed interface SystemMessage : Message
 sealed interface UserMessage: Message

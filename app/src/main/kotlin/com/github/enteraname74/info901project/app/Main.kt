@@ -4,22 +4,24 @@ import com.github.enteraname74.info901project.communication.communicatorimpl.Com
 import com.github.enteraname74.info901project.domain.model.process.Process
 import kotlinx.coroutines.delay
 
+const val MAX_NB_PROCESS = 3
+
 suspend fun main() {
     val processes: ArrayList<Process> = ArrayList()
 
-    for (i in 0 until Process.MAX_NB_PROCESS) {
+    for (i in 0 until MAX_NB_PROCESS) {
         processes.add(
-            Process(
-                name = "P$i",
-                communicator = CommunicatorImpl(),
-                id = i,
-            )
+            Process(communicator = CommunicatorImpl())
         )
     }
 
-    processes.firstOrNull()?.sendToken()
+    println("Main -- will init process to give them ids")
+    processes.forEach { process ->
+        process.run()
+    }
+
     println("Main -- created processes")
-    delay(10_000)
+    delay(20_000)
 
     processes.forEach { process ->
         process.stop()
