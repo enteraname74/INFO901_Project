@@ -6,19 +6,30 @@ sealed interface Message {
     val senderId: Int
 
     @Serializable
-    data class BroadcastMessage(
-        val content: String,
-        override val senderId: Int
-    ): Message
+    data class TokenMessage(
+        override val senderId: Int,
+        val recipientId: Int,
+    ): SystemMessage
 
     @Serializable
-    data class TokenMessage(
-        override val senderId: Int
-    ): Message
+    data class SynchronizationMessage(
+        override val senderId: Int,
+        val recipientId: Int,
+    ): SystemMessage
+
+    @Serializable
+    data class BroadcastMessage(
+        override val senderId: Int,
+        val content: String,
+    ): UserMessage
 
     @Serializable
     data class OneToOneMessage(
+        val content: String,
         override val senderId: Int,
         val recipientId: Int,
-    ): Message
+    ): UserMessage
 }
+
+sealed interface SystemMessage : Message
+sealed interface UserMessage: Message

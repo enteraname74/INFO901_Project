@@ -1,6 +1,5 @@
 package com.github.enteraname74.info901project.communication
 
-import com.github.enteraname74.info901project.domain.model.Message
 import com.google.common.eventbus.AsyncEventBus
 import com.google.common.eventbus.EventBus
 import java.util.concurrent.Executors

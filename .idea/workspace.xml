@@ -5,22 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bdf6df7e-645e-43b8-9333-297a6cbb9679" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/communication/src/main/kotlin/com/github/enteraname74/info901project/communication/EventBusService.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/communication/src/main/kotlin/com/github/enteraname74/info901project/communication/communicator/BroadcastCommunicator.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/src/main/kotlin/com/github/enteraname74/info901project/domain/model/ClockMessage.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/src/main/kotlin/com/github/enteraname74/info901project/domain/model/CommunicationType.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/src/main/kotlin/com/github/enteraname74/info901project/domain/model/Communicator.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/src/main/kotlin/com/github/enteraname74/info901project/domain/model/LamportClock.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/src/main/kotlin/com/github/enteraname74/info901project/domain/model/Message.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/src/main/kotlin/com/github/enteraname74/info901project/domain/model/Process.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/communication/src/main/kotlin/com/github/enteraname74/info901project/communication/communicatorimpl/CommunicatorImpl.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/communication/src/main/kotlin/com/github/enteraname74/info901project/communication/communicatorimpl/OneToOneCommunicator.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/communication/src/main/kotlin/com/github/enteraname74/info901project/communication/communicatorimpl/SynchronizationCommunicator.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/communication/src/main/kotlin/com/github/enteraname74/info901project/communication/communicatorimpl/TokenCommunicator.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/communication/src/main/kotlin/com/github/enteraname74/info901project/communication/util/CommunicatorUtil.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/src/main/kotlin/com/github/enteraname74/info901project/domain/model/MailBox.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/src/main/kotlin/com/github/enteraname74/info901project/domain/model/process/ProcessMessageHandler.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/src/main/kotlin/com/github/enteraname74/info901project/domain/model/process/ProcessState.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/EventBusService.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/kotlin/com/github/enteraname74/info901project/app/Main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Message.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Process.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/com/github/enteraname74/info901project/app/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/kotlin/com/github/enteraname74/info901project/app/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/communication/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/communication/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/communication/src/main/kotlin/com/github/enteraname74/info901project/communication/EventBusService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/communication/src/main/kotlin/com/github/enteraname74/info901project/communication/EventBusService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/communication/src/main/kotlin/com/github/enteraname74/info901project/communication/communicator/BroadcastCommunicator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/communication/src/main/kotlin/com/github/enteraname74/info901project/communication/communicatorimpl/BroadcastCommunicator.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/src/main/kotlin/com/github/enteraname74/info901project/domain/model/CommunicationType.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/src/main/kotlin/com/github/enteraname74/info901project/domain/model/Communicator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/kotlin/com/github/enteraname74/info901project/domain/model/Communicator.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/src/main/kotlin/com/github/enteraname74/info901project/domain/model/LamportClock.kt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/kotlin/com/github/enteraname74/info901project/domain/model/LamportClock.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/src/main/kotlin/com/github/enteraname74/info901project/domain/model/Message.kt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/kotlin/com/github/enteraname74/info901project/domain/model/Message.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/src/main/kotlin/com/github/enteraname74/info901project/domain/model/Process.kt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/kotlin/com/github/enteraname74/info901project/domain/model/process/Process.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,52 +39,55 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin File" />
-        <option value="Kotlin Class" />
         <option value="Kotlin Interface" />
         <option value="Kotlin Data Class" />
+        <option value="Kotlin Object" />
+        <option value="Kotlin Enum" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2mF617WLYSKIpVQt8VTW5Izdpup" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.Build INFO901_Project.executor": "Run",
-    "Kotlin.MainKt (1).executor": "Run",
-    "Kotlin.MainKt.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.Build INFO901_Project.executor&quot;: &quot;Run&quot;,
+    &quot;Kotlin.MainKt (1).executor&quot;: &quot;Run&quot;,
+    &quot;Kotlin.MainKt.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "kotlin-gradle-user-dirs": [
-      "/home/noah/.gradle"
+  &quot;keyToStringList&quot;: {
+    &quot;kotlin-gradle-user-dirs&quot;: [
+      &quot;/home/noah/.gradle&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/src/main/kotlin/com/github/enteraname74/info901project/app" />
       <recent name="$PROJECT_DIR$/src/main/kotlin/com" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.github.enteraname74.info901project.domain.model.process" />
       <recent name="com.github.enteraname74.info901project.domain.model" />
       <recent name="com.github.enteraname74.domain.model" />
       <recent name="com.github.enteraname74.domain" />
@@ -126,7 +132,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1726659758879</updated>
-      <workItem from="1726659759876" duration="7729000" />
+      <workItem from="1726659759876" duration="10915000" />
+      <workItem from="1726685452344" duration="7557000" />
+      <workItem from="1726726467429" duration="12141000" />
+      <workItem from="1726756469285" duration="2870000" />
+      <workItem from="1726760890857" duration="196000" />
+      <workItem from="1726813415570" duration="2576000" />
     </task>
     <servers />
   </component>

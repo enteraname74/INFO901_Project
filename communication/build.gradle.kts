@@ -13,6 +13,7 @@ dependencies {
     testImplementation(kotlin("test"))
     implementation("com.google.guava:guava:33.3.0-jre")
     implementation(project(":domain"))
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0")
 }
 
 tasks.test {
