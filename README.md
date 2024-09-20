@@ -35,5 +35,6 @@ Pour ce faire, un message est envoyé avec une indication de callback. Le destin
 Une fois reçu, ce message est ajouté dans une mail box de messages de callback.
 On boucle tant qu'aucun message de callback du destinataire ne soit dans la mail box.
 
-
 `broadcastSync()` : Même système que pour `sendToSync()` mais on attends d'avoir x messages de callbacks correspondants au nombre de processus ayant reçu le message.
+
+L'id d'un processus est donné par son communicator.
