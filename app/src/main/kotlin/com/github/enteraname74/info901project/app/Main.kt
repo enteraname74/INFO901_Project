@@ -1,3 +1,4 @@
+@file:JvmName("Main")
 package com.github.enteraname74.info901project.app
 
 import com.github.enteraname74.info901project.communication.communicatorimpl.CommunicatorImpl

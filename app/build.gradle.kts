@@ -1,5 +1,10 @@
 plugins {
     kotlin("jvm")
+    id("application")
+}
+
+application {
+    mainClass = "com.github.enteraname74.info901project.app.Main"
 }
 
 group = "com.github.enteraname74.info901project"
