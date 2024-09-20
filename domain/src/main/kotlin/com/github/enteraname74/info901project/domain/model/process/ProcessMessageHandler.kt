@@ -1,16 +1,24 @@
 package com.github.enteraname74.info901project.domain.model.process
 
-import com.github.enteraname74.info901project.domain.model.Message
+import com.github.enteraname74.info901project.domain.model.message.Message
 
 class ProcessMessageHandler {
+    private fun handleCallbackMessage(
+        message: Message.CallbackMessage,
+        processId: Int,
+    ): Message? =
+        message.takeUnless {
+            it.senderId == processId || it.recipientId != processId
+        }
+
     private fun handleBroadcastMessage(
-        message: Message.BroadcastMessage,
+        message: Message.BroadcastMessage<*>,
         processId: Int,
     ): Message? =
         message.takeUnless { it.senderId == processId }
 
     private fun handleOneToOneMessage(
-        message: Message.OneToOneMessage,
+        message: Message.OneToOneMessage<*>,
         processId: Int,
     ): Message? =
         message.takeUnless {
@@ -44,15 +52,15 @@ class ProcessMessageHandler {
         process: Process,
     ): Message? =
         when(message) {
-            is Message.BroadcastMessage -> {
-                println("WILL ANALYZE BROADCAST: $message")
-                handleBroadcastMessage(
-                    message = message,
-                    processId = process.id
-                )
-            }
-
-            is Message.OneToOneMessage -> handleOneToOneMessage(
+            is Message.CallbackMessage -> handleCallbackMessage(
+                message = message,
+                processId = process.id,
+            )
+            is Message.BroadcastMessage<*> -> handleBroadcastMessage(
+                message = message,
+                processId = process.id
+            )
+            is Message.OneToOneMessage<*> -> handleOneToOneMessage(
                 message = message,
                 processId = process.id,
             )

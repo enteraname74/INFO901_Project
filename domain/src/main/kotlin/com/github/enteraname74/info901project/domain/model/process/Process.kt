@@ -2,7 +2,7 @@ package com.github.enteraname74.info901project.domain.model.process
 
 import com.github.enteraname74.info901project.domain.model.Communicator
 import com.github.enteraname74.info901project.domain.model.CommunicatorCallback
-import com.github.enteraname74.info901project.domain.model.Message
+import com.github.enteraname74.info901project.domain.model.message.Message
 import kotlinx.coroutines.*
 
 class Process(
@@ -29,10 +29,8 @@ class Process(
         println("Process $name received message: $message")
     }
 
-    fun sendToken() {
-        communicator.sendTokenMessage(
-            recipientId = nextProcessId()
-        )
+    suspend fun sendToken() {
+        communicator.sendTokenMessage()
     }
 
     private suspend fun handleCriticalZone() {
@@ -53,8 +51,11 @@ class Process(
         while (alive) {
             try {
                 delay(1_000)
-
                 if (id == 0) {
+                    communicator.broadcastSync(
+                        content = "Message à tous les participants"
+                    )
+
                     communicator.sendTo(
                         content = "J'appelle 2 et je te recontacte après",
                         recipientId = 1
@@ -75,6 +76,9 @@ class Process(
                     handleCriticalZone()
 
                 } else if (id == 1) {
+                    val initialMessageFrom0 = communicator.receiveFromSync(senderId = 0)
+                    println("Process $name received message from process 0: $initialMessageFrom0")
+
                     if (!communicator.mailBox.isEmpty()) {
                         val messageFromMailBox: Message? = communicator.mailBox.popLast()
                         println("Process $name got message from mail box: $messageFromMailBox")
@@ -85,6 +89,8 @@ class Process(
                         handleCriticalZone()
                     }
                 } else if (id == 2) {
+                    val initMessageFrom0 = communicator.receiveFromSync(senderId = 0)
+                    println("Process $name received message from process 0: $initMessageFrom0")
                     val messageFrom0: Message = communicator.receiveFromSync(
                         senderId = 0
                     )
